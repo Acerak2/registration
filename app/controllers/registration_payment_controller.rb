@@ -25,9 +25,6 @@ class RegistrationPaymentController < ApplicationController
         :currency    => 'usd'
     )
 
-    logger.info "I have a charge #{charge}"
-    logger.info "The charge ID is #{charge.id} and it was in the amount of #{charge.amount / 100}"
-
     @user_event.paid = true
     @user_event.payment_amount = charge.amount # Will be in cents, not dollars!
     @user_event.payment_id = charge.id
